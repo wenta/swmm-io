@@ -130,7 +130,6 @@ node test/validate-real.mjs --download --large
 - [Known compatibility limits](docs/COMPATIBILITY.md)
 - [Security and untrusted-file limitations](docs/SECURITY.md)
 - [Contributing and quality gates](docs/CONTRIBUTING.md)
-- [Polski przewodnik](docs/PL.md)
 - [Release and publishing guide](docs/RELEASING.md)
 - [Release history](CHANGELOG.md)
 

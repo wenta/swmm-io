@@ -10,6 +10,5 @@ Start with the current, supported API:
 - [Sidecar index format](INDEX-FORMAT.md) — time-series index binary format
 - [Native verification](VERIFY-NATIVE.md) — EPA comparison procedure
 - [Development](CONTRIBUTING.md) — tests, style and quality gates
-- [Polski](PL.md) — quick start in Polish
 
 Historical changes are tracked in the [CHANGELOG](../CHANGELOG.md); the published documentation describes the current API only.
