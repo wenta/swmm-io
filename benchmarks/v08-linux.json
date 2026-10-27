@@ -1,0 +1,112 @@
+{
+  "node": "v22.16.0",
+  "platform": "linux",
+  "arch": "x64",
+  "model": "synthetic SWMM 5.2 fixture",
+  "fileBytes": 34928419,
+  "methodology": "Four sequential reps (one warmup, median of 3), in-memory counting ByteSource; no SSD or network I/O",
+  "records": [
+    {
+      "scenario": "sparse-100",
+      "links": 100,
+      "channels": 300,
+      "periods": 120,
+      "values": 36000,
+      "plan": {
+        "strategy": "grouped",
+        "periodCount": 120,
+        "seriesCount": 300,
+        "distinctColumns": 300,
+        "groups": 100,
+        "estimatedReadBytes": 144000,
+        "estimatedReadCalls": 12000,
+        "outputBytes": 144000
+      },
+      "existingSeriesMany": {
+        "medianMs": 6.412,
+        "io": {
+          "calls": 12000,
+          "bytes": 144000,
+          "maxRead": 12
+        }
+      },
+      "queryEngine": {
+        "medianMs": 6.612,
+        "io": {
+          "calls": 12000,
+          "bytes": 144000,
+          "maxRead": 12
+        }
+      },
+      "speedup": 0.97
+    },
+    {
+      "scenario": "grouped-1000",
+      "links": 1000,
+      "channels": 3000,
+      "periods": 120,
+      "values": 360000,
+      "plan": {
+        "strategy": "sequential",
+        "periodCount": 120,
+        "seriesCount": 3000,
+        "distinctColumns": 3000,
+        "groups": 1000,
+        "estimatedReadBytes": 34571352,
+        "estimatedReadCalls": 18,
+        "outputBytes": 1440000
+      },
+      "existingSeriesMany": {
+        "medianMs": 69.733,
+        "io": {
+          "calls": 120000,
+          "bytes": 1440000,
+          "maxRead": 12
+        }
+      },
+      "queryEngine": {
+        "medianMs": 6.339,
+        "io": {
+          "calls": 18,
+          "bytes": 34571352,
+          "maxRead": 2016684
+        }
+      },
+      "speedup": 11
+    },
+    {
+      "scenario": "dense-10000",
+      "links": 10000,
+      "channels": 30000,
+      "periods": 120,
+      "values": 3600000,
+      "plan": {
+        "strategy": "sequential",
+        "periodCount": 120,
+        "seriesCount": 30000,
+        "distinctColumns": 30000,
+        "groups": 1,
+        "estimatedReadBytes": 34575672,
+        "estimatedReadCalls": 18,
+        "outputBytes": 14400000
+      },
+      "existingSeriesMany": {
+        "medianMs": 73.544,
+        "io": {
+          "calls": 120,
+          "bytes": 34555680,
+          "maxRead": 287964
+        }
+      },
+      "queryEngine": {
+        "medianMs": 76.412,
+        "io": {
+          "calls": 18,
+          "bytes": 34575672,
+          "maxRead": 2016924
+        }
+      },
+      "speedup": 0.96
+    }
+  ]
+}

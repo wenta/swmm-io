@@ -1,0 +1,71 @@
+{
+  "name": "swmm-io",
+  "version": "0.8.0-beta.1",
+  "description": "Zero-runtime-dependency TypeScript parser and random-access query library for EPA SWMM INP, OUT, and RPT files",
+  "type": "module",
+  "types": "./dist/index.d.ts",
+  "license": "MIT",
+  "sideEffects": false,
+  "files": [
+    "dist/",
+    "docs/",
+    "examples/",
+    "tools/compare-reference.mjs",
+    "tools/export-reference-pyswmm.py",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test --test-concurrency=1 test/*.test.mjs",
+    "bench": "npm run build && node --expose-gc test/benchmark.mjs && node test/benchmark-multiseries.mjs && node test/benchmark-streaming.mjs",
+    "check": "npm test && npm run bench",
+    "bench:properties": "npm run build && node --expose-gc test/benchmark-properties.mjs",
+    "bench:access": "npm run build && node --expose-gc test/benchmark-access-strategies.mjs",
+    "bench:cache": "npm run build && node --expose-gc test/benchmark-cache.mjs",
+    "bench:v06": "npm run build && node --expose-gc test/benchmark-v06.mjs --large",
+    "bench:v07": "npm run build && node --expose-gc test/benchmark-v07.mjs",
+    "measure:model": "npm run build && node --expose-gc tools/measure-model.mjs",
+    "bench:v071": "npm run build && node --expose-gc test/benchmark-v071.mjs",
+    "bench:v08": "npm run build && node --expose-gc test/benchmark-v08.mjs",
+    "test:types": "tsc -p tsconfig.consumer.json",
+    "test:browser": "node --test test/browser-compat.test.mjs",
+    "verify": "npm run build && npm run test:types && node --test --test-concurrency=1 test/*.test.mjs && npm run test:browser && node tools/check-package.mjs",
+    "prepack": "npm run verify",
+    "pack:check": "npm pack --dry-run --json",
+    "release:check": "npm run verify && npm run pack:check",
+    "smoke:pack": "npm run verify && node tools/smoke-pack.mjs"
+  },
+  "devDependencies": {
+    "typescript": "5.8.3"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "swmm",
+    "epa-swmm",
+    "hydrology",
+    "stormwater",
+    "hydraulics",
+    "typescript",
+    "inp",
+    "out",
+    "rpt",
+    "simulation",
+    "time-series"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "publishConfig": {
+    "access": "public",
+    "tag": "beta"
+  }
+}
